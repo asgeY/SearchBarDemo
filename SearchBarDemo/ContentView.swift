@@ -29,7 +29,7 @@ struct ContentView: View {
     NavigationView{
       List {
         SearchBar(text: $searchTerm)
-        ForEach(self.djs.filter { self.searchTerm.isEmpty ? true : $0.contains(self.searchTerm) }, id: \.self) { name in
+        ForEach(self.djs.filter { self.searchTerm.isEmpty ? true : $0.localizedCaseInsensitiveContains(self.searchTerm) }, id: \.self) { name in
           Text(name)
         }
       }
